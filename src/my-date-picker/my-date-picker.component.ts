@@ -653,6 +653,10 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor {
         return {date: date, jsdate: this.getDate(date.year, date.month, date.day), formatted: this.formatDate(date), epoc: Math.round(this.getTimeInMilliseconds(date) / 1000.0)};
     }
 
+    convertTojsDate(date: IMyDate): Date {
+      return this.getDate(date.year, date.month, date.day);
+    }
+
     preZero(val: string): string {
         // Prepend zero if smaller than 10
         return parseInt(val) < 10 ? "0" + val : val;
